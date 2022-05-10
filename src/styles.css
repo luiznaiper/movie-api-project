@@ -1,14 +1,18 @@
 /* General */
-* { box-sizing: border-box; }
+* {
+     box-sizing: border-box;
+     margin: 0;
+     padding: 0;
+}
 
 :root {
-  --purple-light-1: #FBFAFB;
-  --purple-light-2: #EEEAF2;
-  --purple-medium-1: #AA83C8;
-  --purple-medium-2: #8B48BF;
-  --purple-medium-3: #5C218A;
-  --purple-dark-1: #3E0F64;
-  --purple-dark-2: #2A0646;
+  --white: #FBFAFB;
+  ----white-2: #F7F7F7;
+  --main-medium-1: #A0CFD9;
+  --main-medium-2: #7DA2A9  ;
+  --main-medium-3: #7B9FA6;
+  --main-dark-1: #275159;
+  --main-dark-2: #1a2528;
 
   --yellow: #EECC75;
   --green: #CAD297;
@@ -17,21 +21,23 @@
   --darkBlue: #8EA2EA;
   --red: #F09D9D;
 
-  --font-family-titles: 'Dosis', sans-serif;
-  --font-family-text: 'Red Hat Display', sans-serif;
-  --font-weight-title1: 800;
+  --font-family-titles: 'Lato', sans-serif;
+  --font-family-text: 'Lora', sans-serif;
+  --font-weight-title1: 900;
   --font-weight-title2: 700;
   --font-weight-text1: 400;
   --font-weight-text2: 500;
 }
 
 html {
-  background-color: var(--purple-medium-3);
+  background-color: var(--main-medium-3);
+  font-size: 62.5%;
+  font-family: "Lato", sans-serif;
 }
 
 body {
-  background-color: var(--purple-light-1);
-  color: var(--purple-dark-2);
+  background-color: var(--white);
+  color: var(--main-dark-1);
   font-family: var(--font-family-text);
   font-weight: var(--font-weight-text1);
   font-size: 16px;
@@ -46,7 +52,7 @@ h1, h2, h3 {
 
 h1, h2 {
   font-size: 24px;
-  color: var(--purple-dark-2);
+  color: var(--main-dark-1);
   font-family: var(--font-family-titles);
   font-weight: var(--font-weight-title1);
   margin: 0;
@@ -55,33 +61,33 @@ h1, h2 {
 
 h2 {
   font-size: 18px;
-  color: var(--purple-dark-1);
+  color: var(--main-dark-1);
   font-weight: var(--font-weight-title2);
 }
 
 h3 {
-  color: var(--purple-dark-2);
+  color: var(--main-dark-1);
   font-weight: var(--font-weight-text2);
   font-size: 16px;
 }
 
 input {
-  background-color: var(--purple-light-2);
-  color: var(--purple-medium-2);
+  background-color: var(----white-2);
+  color: var(--main-dark-1);
   border: none;
   font-size: 18px;
   padding-left: 16px;
 }
 
 input::placeholder {
-  color: var(--purple-medium-1);
+  color: var(--main-medium-1);
   font-family: var(--font-family-text);
 }
 
 button {
-  background-color: var(--purple-dark-1);
+  background-color: var(--main-dark-1);
   border: none;
-  color: var(--purple-light-2);
+  color: var(----white-2);
   font-weight: var(--font-weight-text2);
   font-size: 14px;
   cursor: pointer;
@@ -149,7 +155,7 @@ button {
   display: inline-block;
 }
 .header-arrow--white {
-  color: var(--purple-light-1);
+  color: var(--white);
 }
 
 .header-searchForm {
@@ -239,15 +245,15 @@ button {
 #id16 { --idColor: var(--green); }
 #id35 { --idColor: var(--lightBlue); }
 #id80 { --idColor: var(--darkBlue); }
-#id99 { --idColor: var(--purple-dark-1); }
-#id18 { --idColor: var(--purple-medium-1); }
+#id99 { --idColor: var(--main-dark-2); }
+#id18 { --idColor: var(--main-medium-1); }
 #id10751 { --idColor: var(--yellow); }
 #id14 { --idColor: var(--red); }
 #id36 { --idColor: var(--green); }
 #id27 { --idColor: var(--lightBlue); }
 #id10402 { --idColor: var(--darkBlue); }
-#id9648 { --idColor: var(--purple-dark-1); }
-#id10749 { --idColor: var(--purple-medium-1); }
+#id9648 { --idColor: var(--main-dark-2); }
+#id10749 { --idColor: var(--main-medium-1); }
 #id878 { --idColor: var(--yellow); }
 #id10770 { --idColor: var(--red); }
 #id53 { --idColor: var(--green); }
@@ -282,7 +288,7 @@ button {
   margin-top: 403px;
   z-index: 1;
   position: absolute;
-  background-color: var(--purple-light-1);
+  background-color: var(--white);
 }
 
 .movieDetail-title {
@@ -343,8 +349,8 @@ button {
 
 /* Footer */
 footer {
-  background-color: var(--purple-medium-3);
-  color: var(--purple-light-2);
+  background-color: var(--main-medium-3);
+  color: var(----white-2);
   text-align: center;
   height: 48px;
   display: flex;
