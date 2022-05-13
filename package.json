@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/luiznaiper/movie-api-project/issues"
   },
-  "homepage": "https://github.com/luiznaiper/movie-api-project#readme"
+  "homepage": "https://github.com/luiznaiper/movie-api-project#readme",
+  "dependencies": {
+    "axios": "^0.27.2"
+  }
 }
