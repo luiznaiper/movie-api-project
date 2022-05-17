@@ -118,4 +118,12 @@ const categoriesPage = () => {
    genericSection.classList.remove('inactive')
    movieDetailSection.classList.add('inactive')
 
+    const [categoryHash, categoryData] = location.hash.split('=') // ['#category', 'id-name']
+    
+    const [categoryId, categoryName] = categoryData.split('-')
+    const newCategoryName =  decodeURI(categoryName)
+    headerCategoryTitle.innerText = newCategoryName
+
+    getMoviesByCategory(categoryId)
+
 }
