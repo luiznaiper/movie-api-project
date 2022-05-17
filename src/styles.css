@@ -15,11 +15,24 @@
   --main-dark-2: #1a2528;
 
   --yellow: #EECC75;
+  --yellow-2: #ecb62d;
   --green: #CAD297;
+  --green-2: #7e8649;
   --aqua: #B7EAC5;
+  --aqua-2: #5bd7d7;
   --lightBlue: #A2EEE5;
+  --lightBlue-2: #26b6a5;
   --darkBlue: #8EA2EA;
+  --darkBlue-2: #556ab5;
   --red: #F09D9D;
+  --red-2: #e87272;
+  --orange: #eba755;
+  --orange-2: #bd7125;
+  --brown: #905820;
+  --brown-2: #50361b;
+  --purple: #8a3689;
+  --purple-2: #a20c9f;
+  
 
   --font-family-titles: 'Lato', sans-serif;
   --font-family-text: 'Lora', sans-serif;
@@ -247,18 +260,18 @@ button {
 #id80 { --idColor: var(--darkBlue); }
 #id99 { --idColor: var(--main-dark-2); }
 #id18 { --idColor: var(--main-medium-1); }
-#id10751 { --idColor: var(--yellow); }
-#id14 { --idColor: var(--red); }
-#id36 { --idColor: var(--green); }
-#id27 { --idColor: var(--lightBlue); }
-#id10402 { --idColor: var(--darkBlue); }
-#id9648 { --idColor: var(--main-dark-2); }
-#id10749 { --idColor: var(--main-medium-1); }
-#id878 { --idColor: var(--yellow); }
-#id10770 { --idColor: var(--red); }
-#id53 { --idColor: var(--green); }
-#id10752 { --idColor: var(--lightBlue); }
-#id37 { --idColor: var(--darkBlue); }
+#id10751 { --idColor: var(--red-2); }
+#id14 { --idColor: var(--darkBlue-2); }
+#id36 { --idColor: var(--lightBlue-2); }
+#id27 { --idColor: var(--yellow-2); }
+#id10402 { --idColor: var(--green-2); }
+#id9648 { --idColor: var(--aqua-2); }
+#id10749 { --idColor: var(--orange); }
+#id878 { --idColor: var(--orange-2); }
+#id10770 { --idColor: var(--brown); }
+#id53 { --idColor: var(--brown-2); }
+#id10752 { --idColor: var(--purple); }
+#id37 { --idColor: var(--purple-2); }
 
 
 /* Generic List (search, trending & category) */
