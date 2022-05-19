@@ -1,6 +1,6 @@
 
 searchFormBtn.addEventListener('click', () => {
-    location.hash = '#search='
+    location.hash = '#search=' + searchFormInput.value
 })
 
 trendingBtn.addEventListener('click', () => {
@@ -79,7 +79,7 @@ const searchPage = () => {
     arrowBtn.classList.remove('inactive')
     arrowBtn.classList.remove ('header--arrow-white')
     headerTitle.classList.add('inactive') 
-    headerCategoryTitle.classList.remove('inactive')
+    headerCategoryTitle.classList.add('inactive')
     searchForm.classList.remove('inactive')
 
    trendingPreviewSection.classList.add('inactive')
@@ -87,6 +87,8 @@ const searchPage = () => {
    genericSection.classList.remove('inactive')
    movieDetailSection.classList.add('inactive')
 
+   const [__, query] = location.hash.split('=') // ['#search', 'searched']
+    getMoviesBySearch(query)
 }
 
 const moviesPage = () => {
@@ -122,7 +124,7 @@ const categoriesPage = () => {
    genericSection.classList.remove('inactive')
    movieDetailSection.classList.add('inactive')
 
-    const [categoryHash, categoryData] = location.hash.split('=') // ['#category', 'id-name']
+    const [__, categoryData] = location.hash.split('=') // ['#category', 'id-name']
     
     const [categoryId, categoryName] = categoryData.split('-')
     const newCategoryName =  decodeURI(categoryName)
