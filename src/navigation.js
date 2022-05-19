@@ -8,7 +8,7 @@ trendingBtn.addEventListener('click', () => {
 })
 
 arrowBtn.addEventListener('click', () => {
-    location.hash = '#home'
+    history.back()
 })
 
 const navigator = () => {
@@ -69,6 +69,10 @@ const trendsPage = () => {
    categoriesPreviewSection.classList.add('inactive')
    genericSection.classList.remove('inactive')
    movieDetailSection.classList.add('inactive')
+
+   headerCategoryTitle.innerHTML = 'Trends'
+
+   getTrendingMovies()
 }
 
 const searchPage = () => {
@@ -106,6 +110,10 @@ const moviesPage = () => {
     categoriesPreviewSection.classList.add('inactive')
     genericSection.classList.add('inactive')
     movieDetailSection.classList.remove('inactive')
+
+    const [__, movieId] = location.hash.split('=') // ['#movie', 'movieId']
+    getMovieById(movieId)
+
 }
 
 const categoriesPage = () => {
