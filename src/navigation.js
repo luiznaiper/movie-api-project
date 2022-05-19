@@ -26,6 +26,10 @@ const navigator = () => {
         homePage()
     }
     location.hash
+
+    document.body.scrollTop = 10
+    document.documentElement.scrollTop = 10
+
 }
 window.addEventListener('DOMContentLoaded', navigator, false)
 window.addEventListener('hashchange', navigator, false)
