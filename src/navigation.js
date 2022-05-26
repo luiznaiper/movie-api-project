@@ -54,7 +54,7 @@ const homePage = () => {
      headerSection.classList.remove('header-container--long')
      headerSection.style.background = ''
      arrowBtn.classList.add('inactive')
-     arrowBtn.classList.remove('header--arrow-white')
+     arrowBtn.classList.remove('header-arrow--white')
      headerTitle.classList.remove('inactive')
      headerCategoryTitle.classList.add('inactive')
      searchForm.classList.remove('inactive')
@@ -74,7 +74,7 @@ const trendsPage = () => {
     headerSection.classList.remove('header-container--long')
     headerSection.style.background = ''
     arrowBtn.classList.remove('inactive')
-    arrowBtn.classList.remove ('header--arrow-white')
+    arrowBtn.classList.remove ('header-arrow--white')
     headerTitle.classList.add('inactive') 
     headerCategoryTitle.classList.remove('inactive')
     searchForm.classList.add('inactive')
@@ -97,7 +97,7 @@ const searchPage = () => {
     headerSection.classList.remove('header-container--long')
     headerSection.style.background = ''
     arrowBtn.classList.remove('inactive')
-    arrowBtn.classList.remove ('header--arrow-white')
+    arrowBtn.classList.remove ('header-arrow--white')
     headerTitle.classList.add('inactive') 
     headerCategoryTitle.classList.add('inactive')
     searchForm.classList.remove('inactive')
@@ -109,6 +109,8 @@ const searchPage = () => {
 
    const [__, query] = location.hash.split('=') // ['#search', 'searched']
     getMoviesBySearch(query)
+
+    infiniteScroll = getPaginatedMoviesBySearch
 }
 
 const moviesPage = () => {

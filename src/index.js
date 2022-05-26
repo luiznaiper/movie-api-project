@@ -135,6 +135,36 @@ async function getMoviesBySearch(query){
     createMovies(movies, genericSection)
 }
 
+async function getPaginatedMoviesBySearch(query){
+
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+
+     const scrollBottom = scrollTop + clientHeight >=  (scrollHeight - 15) 
+
+    const pageIsNotMax = page < maxPage
+
+    if (scrollBottom && pageIsNotMax){
+        page++
+    const { data } = await api('search/movie', {
+        params: {
+            query,
+            page,
+        }
+    })
+
+    const movies = data.results
+   // console.log({data, movies})
+   // console.log(data)
+    
+    createMovies(movies, genericSection, { lazyLoad: true, clean: false })
+    }
+
+    // const btnLoadMode = document.createElement('button')
+    // btnLoadMode.innerHTML = 'Load more'
+    // btnLoadMode.addEventListener('click', getPaginatedTrendingMovies)
+    // genericSection.appendChild(btnLoadMode)
+}
+
 async function getTrendingMovies(){
     const { data } = await api('trending/movie/day')
 
@@ -173,8 +203,6 @@ async function getPaginatedTrendingMovies(){
     
     createMovies(movies, genericSection, { lazyLoad: true, clean: false })
     }
-
-    
 
     // const btnLoadMode = document.createElement('button')
     // btnLoadMode.innerHTML = 'Load more'
