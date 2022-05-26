@@ -21,9 +21,9 @@ function navigator () {
     //console.log({ location })
 
     if (infiniteScroll) {
-        window.removeEventListener('scroll', infiniteScroll, { passive: false })
-        infiniteScroll = undefined
-    }
+        window.removeEventListener('scroll', infiniteScroll, { passive: false });
+        infiniteScroll = undefined;
+      }
 
     if (location.hash.startsWith('#trends')){ 
         trendsPage()
@@ -86,6 +86,8 @@ const trendsPage = () => {
    headerCategoryTitle.innerHTML = 'Trends'
 
    getTrendingMovies()
+   infiniteScroll = getPaginatedTrendingMovies
+
 }
 
 const searchPage = () => {
@@ -155,4 +157,3 @@ const categoriesPage = () => {
 
 }
 
-infiniteScroll = getPaginatedTrendingMovies
