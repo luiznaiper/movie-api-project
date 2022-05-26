@@ -35,9 +35,15 @@ const createMovies = (movies, container, lazyLoad = false) => {
         movieImg.classList.add('movie-img')
         movieImg.setAttribute('alt', movie.title)
         movieImg.setAttribute(
-        lazyLoad ?  'data-img' : 'src', 
-        `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
-        )
+            lazyLoad ?  'data-img' : 'src', 
+            `https://image.tmdb.org/t/p/w300/${movie.poster_path}`
+            )
+        movieImg.addEventListener('error', () => {
+            movieImg.setAttribute(
+                'src', 
+                'https://static.platzi.com/static/images/error/img404.png'
+                )
+        })
 
         if (lazyLoad){
             lazyLoader.observe(movieImg)
@@ -103,7 +109,7 @@ async function getMoviesByCategory(id){
     const movies = data.results
     console.log({data, movies})
     
-    createMovies(movies, genericSection)
+    createMovies(movies, genericSection, true)
 }
 
 async function getMoviesBySearch(query){
