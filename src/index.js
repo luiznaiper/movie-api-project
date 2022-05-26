@@ -150,10 +150,6 @@ async function getTrendingMovies(){
 
 }
 
-let page = 1
-
-window.addEventListener('scroll', getPaginatedTrendingMovies)
-
 async function getPaginatedTrendingMovies(){
 
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement
