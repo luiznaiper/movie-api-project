@@ -139,7 +139,8 @@ async function getTrendingMovies(){
     const { data } = await api('trending/movie/day')
 
     const movies = data.results
-    console.log({data, movies})
+    //console.log({data, movies})
+    maxPage = data.total_pages
     
     createMovies(movies, genericSection, { lazyLoad: true, clean: true })
 
@@ -156,7 +157,9 @@ async function getPaginatedTrendingMovies(){
 
      const scrollBottom = scrollTop + clientHeight >=  (scrollHeight - 15) 
 
-    if (scrollBottom){
+    const pageIsNotMax = page < maxPage
+
+    if (scrollBottom && pageIsNotMax){
         page++
     const { data } = await api('trending/movie/day', {
         params: {
@@ -165,7 +168,8 @@ async function getPaginatedTrendingMovies(){
     })
 
     const movies = data.results
-    console.log({data, movies})
+   // console.log({data, movies})
+   // console.log(data)
     
     createMovies(movies, genericSection, { lazyLoad: true, clean: false })
     }
