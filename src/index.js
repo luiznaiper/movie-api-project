@@ -117,9 +117,42 @@ async function getMoviesByCategory(id){
     })
 
     const movies = data.results
-    console.log({data, movies})
+    maxPage = data.total_pages
+    //console.log({data, movies})
     
-    createMovies(movies, genericSection, true)
+    createMovies(movies, genericSection, { lazyLoad: true })
+}
+
+ function getPaginatedMoviesByCategory(id){
+
+    return async function (){
+    const { scrollTop, scrollHeight, clientHeight } = document.documentElement
+
+     const scrollBottom = scrollTop + clientHeight >=  (scrollHeight - 15) 
+
+    const pageIsNotMax = page < maxPage
+
+    if (scrollBottom && pageIsNotMax){
+        page++
+        const { data } = await api('discover/movie', {
+            params: {
+                with_genres: id,
+                page,
+            }
+        })
+
+    const movies = data.results
+   // console.log({data, movies})
+   // console.log(data)
+    
+    createMovies(movies, genericSection, { lazyLoad: true, clean: false })
+    }
+    }
+
+    // const btnLoadMode = document.createElement('button')
+    // btnLoadMode.innerHTML = 'Load more'
+    // btnLoadMode.addEventListener('click', getPaginatedTrendingMovies)
+    // genericSection.appendChild(btnLoadMode)
 }
 
 async function getMoviesBySearch(query){
@@ -130,13 +163,16 @@ async function getMoviesBySearch(query){
     })
 
     const movies = data.results
-    console.log({data, movies})
+    maxPage = data.total_pages
+    console.log(maxPage)
+    //console.log({data, movies})
     
     createMovies(movies, genericSection)
 }
 
-async function getPaginatedMoviesBySearch(query){
+ function getPaginatedMoviesBySearch(query){
 
+    return async function (){
     const { scrollTop, scrollHeight, clientHeight } = document.documentElement
 
      const scrollBottom = scrollTop + clientHeight >=  (scrollHeight - 15) 
@@ -157,6 +193,7 @@ async function getPaginatedMoviesBySearch(query){
    // console.log(data)
     
     createMovies(movies, genericSection, { lazyLoad: true, clean: false })
+    }
     }
 
     // const btnLoadMode = document.createElement('button')

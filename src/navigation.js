@@ -110,7 +110,7 @@ const searchPage = () => {
    const [__, query] = location.hash.split('=') // ['#search', 'searched']
     getMoviesBySearch(query)
 
-    infiniteScroll = getPaginatedMoviesBySearch
+    infiniteScroll = getPaginatedMoviesBySearch(query)
 }
 
 const moviesPage = () => {
@@ -157,6 +157,9 @@ const categoriesPage = () => {
     headerCategoryTitle.innerText = newCategoryName
 
     getMoviesByCategory(categoryId)
+
+    infiniteScroll = getPaginatedMoviesByCategory(categoryId)
+
 
 }
 
