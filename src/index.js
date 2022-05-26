@@ -20,8 +20,18 @@ const lazyLoader = new IntersectionObserver((entries) => {
 
 
 //Utils
-const createMovies = (movies, container, lazyLoad = false) => {
-    container.innerHTML = ''
+const createMovies = (
+    movies,
+     container,
+     {
+          lazyLoad = false,
+           clean = true,
+
+     } = {}) => {
+
+    if (clean){
+        container.innerHTML = ''
+    }
 
     movies.forEach(movie => {    
 
@@ -131,7 +141,34 @@ async function getTrendingMovies(){
     const movies = data.results
     console.log({data, movies})
     
-    createMovies(movies, genericSection)
+    createMovies(movies, genericSection, { lazyLoad: true, clean: true })
+
+    const btnLoadMode = document.createElement('button')
+    btnLoadMode.innerHTML = 'Load more'
+    btnLoadMode.addEventListener('click', getPaginatedTrendingMovies)
+    genericSection.appendChild(btnLoadMode)
+
+}
+
+let page = 1
+
+async function getPaginatedTrendingMovies(){
+    page++
+    const { data } = await api('trending/movie/day', {
+        params: {
+            page,
+        }
+    })
+
+    const movies = data.results
+    console.log({data, movies})
+    
+    createMovies(movies, genericSection, { lazyLoad: true, clean: false })
+
+    const btnLoadMode = document.createElement('button')
+    btnLoadMode.innerHTML = 'Load more'
+    btnLoadMode.addEventListener('click', getPaginatedTrendingMovies)
+    genericSection.appendChild(btnLoadMode)
 }
 
 async function getMovieById(id){
