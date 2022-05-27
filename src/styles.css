@@ -122,6 +122,7 @@ button {
 
 .movie-container {
   cursor: pointer;
+  position: relative;
 }
 
 .movie-container--loading {
@@ -145,6 +146,27 @@ button {
 
 .movie-img {
   border-radius: 8px;
+}
+
+.movie-btn {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  padding: 0;
+  margin: 0;
+  z-index: 5;
+}
+
+.movie-btn::before{
+  content: '🤍';
+}
+
+.movie-btn--liked {
+  background-color: var(--aqua-2);
+  box-shadow: 0px 0px 10px 2px var(--main-dark-2);
 }
 
 .categoriesPreview-list, .categories-list {
